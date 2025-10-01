@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account - Style Union</title>
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(120deg, #ff3366, #ff99cc);
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; margin: 0;
+    }
+    .register-container {
+      background: #fff; padding: 40px; border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      width: 350px; text-align: center;
+    }
+    h2 { color: #ff3366; margin-bottom: 20px; font-family:'Merriweather', serif; }
+    input { width: 100%; padding: 12px; margin: 10px 0; border:1px solid #ccc; border-radius:8px; }
+    button { width: 100%; padding: 12px; margin-top: 15px; border: none; border-radius: 8px;
+             background: #ff3366; color:#fff; font-weight:bold; cursor:pointer; }
+    button:hover { background: #cc0052; }
+    .success { color: green; margin-top: 10px; display: none; }
+    .link { margin-top: 15px; }
+    .link a { color: #ff3366; text-decoration: none; font-weight: bold; }
+    .link a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Create Account</h2>
+    <form id="registerForm">
+      <input type="text" id="newUsername" placeholder="Choose Username" required>
+      <input type="password" id="newPassword" placeholder="Choose Password" required>
+      <button type="submit">Register</button>
+      <p class="success" id="successMsg">✅ Account created! You can now login.</p>
+    </form>
+    <div class="link">
+      <p>Already have an account? <a href="index.html">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    const registerForm = document.getElementById("registerForm");
+    const successMsg = document.getElementById("successMsg");
+
+    registerForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      const newUser = document.getElementById("newUsername").value.trim();
+      const newPass = document.getElementById("newPassword").value.trim();
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // prevent duplicate username
+      if(users.find(u => u.username === newUser)){
+        alert("⚠️ Username already exists. Choose another one.");
+        return;
+      }
+
+      users.push({ username: newUser, password: newPass });
+      localStorage.setItem("users", JSON.stringify(users));
+
+      successMsg.style.display = "block";
+      setTimeout(() => {
+        window.location.href = "login 1.html"; // go back to login
+      }, 1500);
+    });
+  </script>
+</body>
+</html>

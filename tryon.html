@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Try On - Style Union</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #ffa7bd, #ffffff);
+      min-height: 100vh;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    input[type="file"] {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+
+    #preview-container {
+      position: relative;
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    #userImage {
+      max-width: 400px;
+      border-radius: 12px;
+      display: none;
+    }
+
+    #itemOverlay {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      width: 200px;
+      cursor: move;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>👕 Try On Feature</header>
+
+  <p>Upload your image to try the selected clothing</p>
+  <input type="file" id="upload" accept="image/*">
+
+  <div id="preview-container">
+    <img id="userImage" src="" alt="Your Image">
+    <!-- Default overlay image (in case no ?item is passed) -->
+    <img id="itemOverlay" src="shirt 1.png" alt="Clothing" draggable="true">
+  
+  </div>
+
+  <script>
+    // Get selected item from shop page
+    const urlParams = new URLSearchParams(window.location.search);
+    const itemImage = urlParams.get('item');
+    const overlay = document.getElementById('itemOverlay');
+
+    if (itemImage) {
+      overlay.src = itemImage; // load image passed via URL
+    }
+
+    // Upload user image
+    document.getElementById('upload').addEventListener('change', function(event) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const userImg = document.getElementById('userImage');
+        userImg.src = e.target.result;
+        userImg.style.display = "block"; // show user photo
+        overlay.style.display = "block"; // show clothing overlay
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    });
+
+    // Make clothing overlay draggable
+    let offsetX, offsetY;
+    overlay.addEventListener('dragstart', function(e) {
+      offsetX = e.offsetX;
+      offsetY = e.offsetY;
+    });
+
+    document.getElementById('preview-container').addEventListener('dragover', function(e) {
+      e.preventDefault();
+    });
+
+    document.getElementById('preview-container').addEventListener('drop', function(e) {
+      e.preventDefault();
+      overlay.style.left = (e.offsetX - offsetX) + 'px';
+      overlay.style.top = (e.offsetY - offsetY) + 'px';
+    });
+  </script>
+
+</body>
+</html>

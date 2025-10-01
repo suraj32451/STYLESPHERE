@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Style Union</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background-image: url(https://wallpaperaccess.com/full/6514285.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 0;
+    }
+    .login-box {
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+    }
+    h2 { margin-bottom: 20px; color: #ff3366; }
+    input {
+      width: 90%; padding: 10px; margin: 10px 0;
+      border: 1px solid #ccc; border-radius: 8px; font-size: 16px;
+    }
+    button {
+      width: 100%; padding: 10px;
+      background: #ff3366; border: none; color: white;
+      font-size: 18px; border-radius: 8px; cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover { background: #cc0052; }
+    .error { color: red; margin-top: 10px; font-size: 14px; }
+    .extra-links { margin-top: 15px; font-size: 14px; }
+    .extra-links a { color: #ff3366; text-decoration: none; font-weight: bold; }
+    .extra-links a:hover { text-decoration: underline; }
+    .reset-btn { margin-top: 15px; font-size: 13px; background: #444; color:#fff; }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Enter Username" />
+    <input type="password" id="password" placeholder="Enter Password" />
+    <button onclick="login()">Login</button>
+    <div id="errorMsg" class="error"></div>
+
+    <div class="extra-links">
+      <a href="creat login page.hyml.html">Create Account</a>
+    </div>
+
+    <!-- Google Sign-In Button -->
+    <div id="g_id_onload"
+      data-client_id="YOUR_GOOGLE_CLIENT_ID"
+      data-login_uri=""
+      data-auto_prompt="false"></div>
+    <div class="g_id_signin"
+      data-type="standard"
+      data-shape="rectangular"
+      data-theme="outline"
+      data-text="sign_in_with"
+      data-size="large"
+      data-width="240"></div>
+
+    <!-- Reset users button -->
+    <button class="reset-btn" onclick="resetUsers()">🔄 Reset Users</button>
+  </div>
+
+  <script>
+    // ✅ Preload default users if none exist
+    if(!localStorage.getItem("users")){
+      let users = [
+        { username: "ramesh", password: "324510", role: "admin" },
+        { username: "raj", password: "12345", role: "user" },
+        { username: "neha", password: "98765", role: "user" }
+      ];
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+
+    function login(){
+      let username = document.getElementById("username").value.trim();
+      let password = document.getElementById("password").value.trim();
+      let errorMsg = document.getElementById("errorMsg");
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      let validUser = users.find(u => u.username === username && u.password === password);
+
+      if(validUser){
+        localStorage.setItem("loggedInUser", JSON.stringify(validUser));
+
+        if(validUser.role === "admin"){
+          window.location.href = "admin page.html";   // ✅ admin page
+        } else {
+          window.location.href = "point 1.html";       // ✅ normal user
+        }
+      } else {
+        errorMsg.textContent = "❌ Invalid username or password!";
+      }
+    }
+
+    // Google Sign-In Callback
+    function handleCredentialResponse(response) {
+      const data = parseJwt(response.credential);
+      const googleUser = { username: data.email, role: "user" };
+      localStorage.setItem("loggedInUser", JSON.stringify(googleUser));
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      if(!users.find(u => u.username === googleUser.username)){
+        users.push(googleUser);
+        localStorage.setItem("users", JSON.stringify(users));
+      }
+
+      window.location.href = "point 1.html";
+    }
+
+    function parseJwt(token) {
+      var base64Url = token.split('.')[1];
+      var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      return JSON.parse(jsonPayload);
+    }
+
+    window.handleCredentialResponse = handleCredentialResponse;
+
+    // ✅ Reset users to default
+    function resetUsers(){
+      localStorage.clear();
+      alert("Users reset! Default admin: admin / admin@123");
+      location.reload();
+    }
+  </script>
+</body>
+</html>

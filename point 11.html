@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Union - Virtual Try-On</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff8f0;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .tryon-box {
+      margin: 20px auto;
+      max-width: 700px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .preview-area {
+      position: relative;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    #uploaded-photo {
+      max-width: 350px;
+      border-radius: 12px;
+      border: 2px solid #ddd;
+    }
+
+    #outfit-overlay {
+      position: absolute;
+      top: 20%;
+      left: 25%;
+      width: 50%;
+      display: none;
+      pointer-events: none;
+    }
+
+    .outfits img {
+      width: 80px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      margin: 5px;
+    }
+
+    .outfits img:hover {
+      border: 2px solid #ff6699;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Style Union Virtual Try-On</h1>
+
+  <div class="tryon-box">
+    <h2>Upload Your Photo</h2>
+    <input type="file" id="upload" accept="image/*"><br><br>
+
+    <div class="preview-area">
+      <img id="uploaded-photo" src="" alt="Your Photo">
+      <img id="outfit-overlay" src="" alt="Outfit">
+    </div>
+
+    <h3>Select an Outfit</h3>
+    <div class="outfits">
+      <img src="https://i.ibb.co/fxF5bYy/dress1.png" alt="Outfit 1" onclick="applyOutfit(this)">
+      <img src="https://i.ibb.co/1rM9Zmh/dress2.png" alt="Outfit 2" onclick="applyOutfit(this)">
+      <img src="https://i.ibb.co/vHQQP6w/hat.png" alt="Outfit 3" onclick="applyOutfit(this)">
+    </div>
+  </div>
+
+  <script>
+    const upload = document.getElementById("upload");
+    const uploadedPhoto = document.getElementById("uploaded-photo");
+    const overlay = document.getElementById("outfit-overlay");
+
+    upload.addEventListener("change", function(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        uploadedPhoto.src = e.target.result;
+        uploadedPhoto.style.display = "block";
+        overlay.style.display = "none";
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function applyOutfit(element) {
+      if (!uploadedPhoto.src) {
+        alert("Please upload your photo first!");
+        return;
+      }
+      overlay.src = element.src;
+      overlay.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

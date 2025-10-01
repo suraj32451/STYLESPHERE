@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Message</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: #fff8f0;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      font-family: 'Merriweather', serif;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ff3366;
+      margin-bottom: 20px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    textarea { resize: vertical; min-height: 100px; }
+
+    button {
+      background: #ff3366;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    button:hover { background: #cc0052; }
+
+    .message { text-align: center; margin-top: 15px; font-weight: bold; color: green; }
+  </style>
+</head>
+<body>
+
+<header>Send Us a Message</header>
+
+<form id="messageForm">
+  <input type="text" id="userName" placeholder="Your Name" required>
+  <input type="email" id="userEmail" placeholder="Your Email" required>
+  <textarea id="userMessage" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+
+<div class="message" id="confirmation"></div>
+
+<script>
+  const form = document.getElementById("messageForm");
+  const confirmation = document.getElementById("confirmation");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("userName").value;
+    const email = document.getElementById("userEmail").value;
+    const messageText = document.getElementById("userMessage").value;
+
+    const message = {
+      name,
+      email,
+      message: messageText,
+      date: new Date().toLocaleString()
+    };
+
+    // Save message to localStorage
+    let messages = JSON.parse(localStorage.getItem("userMessages")) || [];
+    messages.push(message);
+    localStorage.setItem("userMessages", JSON.stringify(messages));
+
+    confirmation.textContent = "✅ Your message has been sent!";
+    form.reset();
+  });
+</script>
+
+</body>
+</html>

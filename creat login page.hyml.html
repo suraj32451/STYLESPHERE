@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account - Style Union</title>
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background-image: url('screenshot.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 0;
+    }
+
+    .register-box {
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #ff3366;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 45%;
+      padding: 10px;
+      background: #ff3366;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px 5px 0 5px;
+    }
+
+    button:hover {
+      background: #cc0052;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .success {
+      color: green;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-box">
+    <h2>Create Account</h2>
+    <input type="text" id="username" placeholder="Enter Username" />
+    <input type="password" id="password" placeholder="Enter Password" />
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" />
+
+    <!-- Buttons: Save and Go Back -->
+    <div>
+      <button onclick="createAccount()">Save</button>
+      <button onclick="saveAndGoBack()">Go Back</button>
+    </div>
+
+    <div id="errorMsg" class="error"></div>
+    <div id="successMsg" class="success"></div>
+  </div>
+
+  <script>
+    function createAccount(){
+      let username = document.getElementById("username").value.trim();
+      let password = document.getElementById("password").value.trim();
+      let confirmPassword = document.getElementById("confirmPassword").value.trim();
+      let errorMsg = document.getElementById("errorMsg");
+      let successMsg = document.getElementById("successMsg");
+
+      errorMsg.textContent = "";
+      successMsg.textContent = "";
+
+      if(username === "" || password === "" || confirmPassword === ""){
+        errorMsg.textContent = "❌ All fields are required!";
+        return false;
+      }
+
+      if(password !== confirmPassword){
+        errorMsg.textContent = "❌ Passwords do not match!";
+        return false;
+      }
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      let existingUser = users.find(u => u.username === username);
+      if(existingUser){
+        errorMsg.textContent = "❌ Username already exists!";
+        return false;
+      }
+
+      users.push({ username: username, password: password, role: "user" });
+      localStorage.setItem("users", JSON.stringify(users));
+
+      successMsg.textContent = "✅ Account created successfully!";
+      return true;
+    }
+
+    function saveAndGoBack(){
+      // Call createAccount to save data
+      if(createAccount()){
+        // Redirect immediately after saving
+        window.location.href = "login 1.html";
+      }
+    }
+  </script>
+</body>
+</html>

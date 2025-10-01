@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Account</title>
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ff3366, #ff99cc);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      color: #fff;
+      font-size: 2rem;
+      font-family: 'Merriweather', serif;
+    }
+
+    .edit-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .edit-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #ff3366;
+    }
+
+    form label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    form textarea {
+      resize: none;
+      height: 80px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ff3366;
+      color: #fff;
+      padding: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #cc0052;
+      transform: scale(1.05);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-left: 15px;
+      text-decoration: none;
+      color: #ff3366;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      color: #cc0052;
+    }
+
+    footer {
+      text-align: center;
+      background: #ff99cc;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>✏️ Edit Account</header>
+
+  <div class="edit-container">
+    <h2>Update Your Details</h2>
+    <form>
+      <label>Full Name:</label>
+      <input type="text" value="John Doe" required>
+
+      <label>Email:</label>
+      <input type="email" value="john.doe@example.com" required>
+
+      <label>Phone Number:</label>
+      <input type="text" value="+91 9876543210" required>
+
+      <label>Address:</label>
+      <textarea required>123 Fashion Street, Mumbai, India</textarea>
+
+      <label>Password:</label>
+      <input type="password" placeholder="Enter new password">
+
+      <button type="submit" class="btn">💾 Save Changes</button>
+      <a href="point 1.html" class="back-link">← Back to Account</a>
+
+    </form>
+  </div>
+
+  <footer>
+    <p>Style Union Pvt. Ltd.</p>
+  </footer>
+
+</body>
+</html>

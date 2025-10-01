@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Sphere - Home</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      position: relative;
+      background: linear-gradient(90deg, #ff3366, #ff99cc);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-family: 'Merriweather', serif;
+      color: #fff;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      margin-top: 8px;
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #fff;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #222;
+    }
+
+    /* Cart Icon */
+    .cart-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 28px;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.2s ease, color 0.3s ease;
+    }
+
+    .cart-icon:hover {
+      transform: scale(1.2);
+      color: #222;
+    }
+
+    #cartCount {
+      background: #fff;
+      color: #ff3366;
+      padding: 2px 6px;
+      border-radius: 50%;
+      font-size: 0.9rem;
+      margin-left: 4px;
+    }
+
+    /* Account (Top-Left) */
+    .account-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .account-icon {
+      font-size: 28px;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.2s ease, color 0.3s ease;
+    }
+
+    .account-icon:hover {
+      transform: scale(1.2);
+      color: #222;
+    }
+
+    /* Discount Banner */
+    .discount-banner {
+      background: #ff3366;
+      color: #fff;
+      font-size: 1.3rem;
+      font-family: 'Merriweather', serif;
+      font-weight: bold;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .discount-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 12s linear infinite;
+    }
+
+    .discount-banner a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .discount-banner a:hover {
+      color: #ffe6f0;
+      text-decoration: underline;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url(https://i.pinimg.com/originals/12/d5/48/12d548fef9f04160798a3ec922f0a067.jpg) center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-content h2 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      font-family: 'Merriweather', serif;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero-content a {
+      background: #ff3366;
+      color: #fff;
+      padding: 12px 28px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .hero-content a:hover {
+      background: #cc0052;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background: #ff99cc;
+      padding: 15px;
+      margin-top: 0;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page Protection -->
+  <script>
+    if(!localStorage.getItem("loggedInUser")){
+      window.location.href = "index.html"; 
+    }
+  </script>
+
+  <!-- Header -->
+  <header>
+    <!-- Account -->
+    <div class="account-container">
+      <a href="account 1.html" class="account-icon">👤</a>
+      <span id="welcomeUser"></span>
+    </div>
+
+    <h1>Style Sphere</h1>
+
+    <!-- Navigation -->
+    <nav>
+      <a href="point 1.html">Home</a>
+      <a href="point 2.html">About</a>
+      <a href="point 3.html">Products</a>
+      <a href="point 4.html">Contact</a>
+      <a href="point 5.html">Gallery</a>
+      <a href="point 6.html">Blog</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </nav>
+
+    <!-- Cart -->
+    <a href="cart 1.html" class="cart-icon">🛒 <span id="cartCount">0</span></a>
+  </header>
+
+  <!-- Discount Banner -->
+  <div class="discount-banner">
+    <a href="disscount.html" class="discount-text">
+      🎉 Grand Discount Sale – Up to 70% Off on All Categories! 🛍️ Click Here to Shop Now 🎉
+    </a>
+  </div>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Style Sphere Pvt. Ltd.</h2>
+        <p>Your trusted name in fashion & lifestyle</p>
+        <a href="shoping 1.html">🛍️ Shop Now</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Style Sphere Pvt. Ltd.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Show Welcome User
+    const user = localStorage.getItem("loggedInUser");
+    document.getElementById("welcomeUser").textContent = "Welcome, " + user;
+
+    // Cart Counter
+    const CART_KEY = "style_sphere_cart";
+    let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+    document.getElementById("cartCount").textContent = cart.length;
+
+    // Logout
+    function logout(){
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

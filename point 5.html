@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Union - Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background: #fff8f0; /* original background */
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ff3366, #ff99cc); /* original theme */
+      padding: 15px 20px;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      font-family: 'Merriweather', serif;
+      color: #fff;
+    }
+
+    /* --- Navigation Styling --- */
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 0 12px;
+      padding: 8px 14px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 6px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #fff;
+      color: #ff3366;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      background: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(255, 51, 102, 0.4); /* pink glow */
+      background: linear-gradient(135deg, #ff99cc, #ffe6f0); /* theme changes */
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      opacity: 0.95;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      opacity: 1;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0; right: 0;
+      background: rgba(255, 153, 204, 0.9); /* default semi-pink */
+      color: #333;
+      padding: 12px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    .gallery-item:hover .caption {
+      background: rgba(255, 51, 102, 0.9); /* darker pink when hovered */
+      color: #fff; /* text turns white */
+    }
+
+    footer {
+      text-align: center;
+      background: #ff99cc;
+      padding: 15px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Our Fashion Gallery</h1>
+    <nav>
+      <a href="point 1.html">Home</a>
+      <a href="point 2.html">About</a>
+      <a href="point 3.html">Products</a>
+      <a href="point 4.html">Contact</a>
+      <a href="point 5.html">Gallery</a>
+      <a href="point 6.html">Blog</a>
+     
+    </nav>
+  </header>
+
+  <main>
+    <section class="gallery">
+      <div class="gallery-item">
+        <img src=https://ehotbuzz.com/wp-content/uploads/2022/07/slide1.jpg alt="Western Wear">
+        <div class="caption">Western Wear</div>
+        
+      </div>
+      <div class="gallery-item">
+        <img src=https://i0.wp.com/shaadiwish.com/blog/wp-content/uploads/2021/10/pastel-kurta-pajama.jpg alt="Ethnic Wear">
+        <div class="caption">Ethnic Wear</div>
+        
+      </div>
+      <div class="gallery-item">
+        <img src=https://www.thefashionisto.com/wp-content/uploads/2019/05/Mens-Fashion-Accessories.jpg alt="Accessories">
+        <div class="caption">Accessories</div>
+    
+      </div>
+      <div class="gallery-item">
+        <img src=https://img.staticdj.com/ff67056dbb6db7350ad87869513d749d.jpeg alt="innerwear">
+        <div class="caption">innerwear</div>
+      </div>
+      <div class="gallery-item">
+        <img src=https://www.easybuyindia.com/wp-content/uploads/2024/01/kids-new.png alt="Kids Collection">
+        <div class="caption">Kids Collection</div>
+       
+      </div>
+      <div class="gallery-item">
+        <img src=https://tse4.mm.bing.net/th/id/OIP.oEuZiaaB6RHH5KNMNynq9QHaHa?pid=Api&P=0&h=180 alt="jacket">
+        <div class="caption">jacket</div>
+        
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Style sphere Pvt. Ltd.</p>
+  </footer>
+
+  <script>
+    function logout() {
+      alert("You have been logged out!");
+    }
+  </script>
+
+</body>
+</html>

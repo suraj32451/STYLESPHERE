@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logged In Users - Style Union</title>
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    h2 {
+      color: #ff3366;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 80%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    th, td {
+      padding: 12px 20px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #ff3366;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    .no-users {
+      text-align: center;
+      color: #333;
+      margin-top: 50px;
+    }
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #ff3366;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover { background: #cc0052; }
+  </style>
+</head>
+<body>
+  <h2>Users Who Logged In</h2>
+
+  <table id="usersTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Login Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- User rows will be added here by JS -->
+    </tbody>
+  </table>
+
+  <p class="no-users" id="noUsersMsg">No users have logged in yet.</p>
+
+  <button onclick="clearLoginHistory()">Clear Login History</button>
+
+  <script>
+    // Get login history from localStorage
+    let loginHistory = JSON.parse(localStorage.getItem("loginHistory")) || [];
+
+    const tbody = document.querySelector("#usersTable tbody");
+    const noUsersMsg = document.getElementById("noUsersMsg");
+
+    if(loginHistory.length === 0){
+      document.getElementById("usersTable").style.display = "none";
+      noUsersMsg.style.display = "block";
+    } else {
+      noUsersMsg.style.display = "none";
+      document.getElementById("usersTable").style.display = "table";
+
+      loginHistory.forEach((user, index) => {
+        let tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${user.username}</td>
+          <td>${user.role}</td>
+          <td>${user.time}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Clear login history
+    function clearLoginHistory(){
+      localStorage.removeItem("loginHistory");
+      alert("Login history cleared!");
+      location.reload();
+    }
+  </script>
+</body>
+</html>

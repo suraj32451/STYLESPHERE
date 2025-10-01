@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Union - Other Features</title>
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff3366, #ff99cc);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-family: 'Merriweather', serif;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #ff3366;
+      margin-bottom: 10px;
+    }
+
+    /* Inquiry Form */
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    form button {
+      background: #ff3366;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #cc0052;
+    }
+
+    /* Floating Chat Button */
+    .chat-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff3366;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .chat-btn:hover {
+      background: #cc0052;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #ff3366;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <h1>Other Features</h1>
+    <p>Enhancing Customer Experience</p>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>💬 Real-Time Chat Support</h2>
+      <p>Stay connected with us instantly through our real-time chat support feature. Click the chat button below to start a conversation with our team anytime.</p>
+    </section>
+
+    <section>
+      <h2>📌 Online Booking / Inquiry Form</h2>
+      <p>Have a question or want to book a service? Fill out the inquiry form and we will get back to you quickly.</p>
+
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Phone Number" required>
+        <textarea rows="5" placeholder="Your Message / Inquiry"></textarea>
+        <button type="submit">Submit Inquiry</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Floating Chat Button -->
+  <div class="chat-btn">💬 Chat</div>
+
+  <footer>
+    <p>© 2025 Style Union Pvt Ltd. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

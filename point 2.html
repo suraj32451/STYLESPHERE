@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Union - About Us</title>
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff8f0; /* same theme */
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ff3366, #ff99cc);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-family: 'Merriweather', serif;
+      color: #fff;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      margin-top: 8px;
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #fff;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #222;
+    }
+
+    .hero {
+      background: url(https://www.asrotexgroup.com/wp-content/uploads/2023/01/fashion-design-studio-sewing-cutting-clothes-designer-clothes-manufacturing-craft-product-scaled.jpg) center/cover no-repeat;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(212, 163, 115, 0.5); /* warm overlay */
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-content h2 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      font-family: 'Merriweather', serif;
+    }
+
+    .content {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .content h3 {
+      font-size: 2rem;
+      color: #ff3366;
+      margin-top: 30px;
+    }
+
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .team-member {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      margin: 15px;
+      padding: 20px;
+      width: 250px;
+      transition: transform 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+    }
+
+    .team-member img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .team-member h4 {
+      margin: 8px 0 4px;
+      font-size: 1.3rem;
+      color: #333;
+    }
+
+    .team-member p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      background: #ff99cc;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <h1>Style sphere</h1>
+    <nav>
+  <a href="point 1.html">Home</a>
+  <a href="point 2.html">about</a>
+  <a href="point 3.html">products</a>
+  <a href="point 4.html">contact</a>
+  <a href="point 5.html">gallary</a>
+  <a href="point 6.html">Blog</a>
+</nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>About Us</h2>
+      <p>Our Mission • Vision • Team</p>
+    </div>
+  </section>
+
+  <!-- About Content -->
+  <section class="content">
+    <h3>Our Mission</h3>
+    <p>At Style sphere Pvt. Ltd., our mission is to bring world-class fashion and lifestyle products to our customers, blending quality, comfort, and style at affordable prices.</p>
+
+    <h3>Our Vision</h3>
+    <p>We aim to become the most trusted fashion destination, where every individual finds something that reflects their unique personality and taste.</p>
+
+    <h3>Meet Our Team</h3>
+    <div class="team">
+      <div class="team-member">
+        
+        <h4>ramesh dhanariya</h4>
+        <p>Founder & CEO</p>
+      </div>
+      <div class="team-member">
+       
+        <h4>sangeeta dhanariya</h4>
+        <p>Creative Director</p>
+      </div>
+      <div class="team-member">
+        
+        <h4>suraj dhanariya</h4>
+        <p>Marketing Head</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Style sphere Pvt. Ltd.</p>
+  </footer>
+
+</body>
+</html>

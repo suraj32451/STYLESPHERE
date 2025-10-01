@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Union - Men's Wear</title>
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(120deg, rgb(237, 132, 132),white);
+      margin: 0; padding: 0;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #fff;
+      padding: 15px 30px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .collection {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .card h3 {
+      margin: 15px 0 10px;
+      color: #fff;
+    }
+
+    .price {
+      color: #ffcc00;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #ff3366;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #cc0052;
+    }
+  </style>
+</head>
+<body>
+
+  <header>👔 Men's Wear Collection</header>
+
+  <section class="collection">
+    <div class="card">
+      <img src= https://media-us.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/lifestyle/1000013513646-Beige-Beige-1000013513646_05-2100.jpg alt="Formal Shirt">
+      <h3>Formal Shirt</h3>
+      <p class="price">₹1,299</p>
+      <a href="cart 1.html" class="btn">Add to Cart</a>
+        <a href="tryon.html" class="btn">try on</a>
+    </div>
+
+    <div class="card">
+      <img src="shirt 1.png" alt="Casual T-Shirt">
+      <h3>Casual T-Shirt</h3>
+      <p class="price">₹799</p>
+      <a href="cart 1.html" class="btn">Add to Cart</a>
+        <a href="tryon.html" class="btn">try on</a>
+    </div>
+
+    <div class="card">
+      <img src=https://5.imimg.com/data5/SELLER/Default/2021/7/KM/YH/MJ/2325220/stylox-men-blue-slim-fit-stretchable-jeans-1000x1000.jpg alt="Denim Jeans">
+      <h3>Denim Jeans</h3>
+      <p class="price">₹1,899</p>
+      <a href="cart 1.html" class="btn">Add to Cart</a>
+        <a href="tryon.html" class="btn">try on</a>
+    </div>
+
+    <div class="card">
+      <img src=https://5.imimg.com/data5/ECOM/Default/2023/1/CX/BZ/VY/61819412/o1cn01jyzzgu22dxtp5sfzh-2215039877143-0-cib-500x500.jpg alt="Leather Jacket">
+      <h3>Leather Jacket</h3>
+      <p class="price">₹3,499</p>
+      <a href="cart 1.html" class="btn">Add to Cart</a>
+        <a href="tryon.html" class="btn">try on</a>
+    </div>
+  </section>
+
+</body>
+</html>

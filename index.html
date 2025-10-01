@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Union - Login</title>
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(rgba(255, 51, 102, 0.6), rgba(255, 153, 204, 0.6)),
+        url(https://png.pngtree.com/thumb_back/fh260/back_our/20190619/ourmid/pngtree-shopping-mall-supermarket-selection-merchandise-poster-background-material-image_133225.jpg) no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      width: 350px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #ff3366;
+      margin-bottom: 20px;
+      font-family: 'Merriweather', serif;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #ff3366;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover { background: #cc0052; }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .link { margin-top: 15px; }
+    .link a { color: #ff3366; text-decoration: none; font-weight: bold; }
+    .link a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Enter Username" required>
+      <input type="password" id="password" placeholder="Enter Password" required>
+      <button type="submit">Login</button>
+      <p class="error" id="errorMsg">❌ Invalid username or password</p>
+    </form>
+
+    <div class="link">
+      <p>Don't have an account? <a href="resister 1.html">Create Account</a></p>
+    </div>
+  </div>
+
+  <script>
+    // 🚀 Preloaded Users (you can also add signup later)
+    if (!localStorage.getItem("users")) {
+      let defaultUsers = [
+        { username: "admin", password: "admin123", role: "admin" },
+        { username: "user1", password: "12345", role: "user" },
+        { username: "user2", password: "54321", role: "user" }
+      ];
+      localStorage.setItem("users", JSON.stringify(defaultUsers));
+    }
+
+    const form = document.getElementById("loginForm");
+    const errorMsg = document.getElementById("errorMsg");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const u = document.getElementById("username").value.trim();
+      const p = document.getElementById("password").value.trim();
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      let validUser = users.find(user => user.username === u && user.password === p);
+
+      if (validUser) {
+        localStorage.setItem("loggedInUser", JSON.stringify(validUser));
+
+        if (validUser.role === "admin") {
+          window.location.href = "admin page.html"; // admin dashboard
+        } else {
+          window.location.href = "point 1.html"; // user home page
+        }
+      } else {
+        errorMsg.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

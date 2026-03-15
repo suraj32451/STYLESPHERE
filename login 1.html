@@ -90,7 +90,7 @@
     // ✅ Preload default users if none exist
     if(!localStorage.getItem("users")){
       let users = [
-        { username: "ramesh", password: "324510", role: "admin" },
+        { username: "suraj", password: "2626", role: "admin" },
         { username: "raj", password: "12345", role: "user" },
         { username: "neha", password: "98765", role: "user" }
       ];
@@ -111,7 +111,7 @@
         if(validUser.role === "admin"){
           window.location.href = "admin page.html";   // ✅ admin page
         } else {
-          window.location.href = "point 1.html";       // ✅ normal user
+          window.location.href = "home page(1).html";       // ✅ normal user
         }
       } else {
         errorMsg.textContent = "❌ Invalid username or password!";
@@ -130,7 +130,7 @@
         localStorage.setItem("users", JSON.stringify(users));
       }
 
-      window.location.href = "point 1.html";
+      window.location.href = "home page(1).html";
     }
 
     function parseJwt(token) {

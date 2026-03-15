@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Style AI Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ff3366, #ff99cc);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      color: #fff;
+      font-size: 2rem;
+      font-family: 'Merriweather', serif;
+    }
+
+    .chat-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .chat-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #ff3366;
+    }
+
+    #chatBox {
+      height: 300px;
+      overflow-y: auto;
+      background: #f9f9f9;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    #chatBox p {
+      margin: 6px 0;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+    }
+
+    .btn {
+      background: #ff3366;
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #cc0052;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      background: #ff99cc;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<header>💬 Style AI Assistant</header>
+
+<div class="chat-container">
+  <h2>Chat with Style Assistant</h2>
+
+  <div id="chatBox"></div>
+
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Ask about orders, fashion, sizes...">
+    <button onclick="sendMessage()" class="btn">Send</button>
+  </div>
+</div>
+
+<footer>
+  <p>Style sphere Pvt. Ltd.</p>
+</footer>
+
+<script>
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const chatBox = document.getElementById("chatBox");
+    const userText = input.value.trim();
+    if (userText === "") return;
+
+    chatBox.innerHTML += `<p><strong>You:</strong> ${userText}</p>`;
+
+    let reply = "I'm here to help with your fashion and shopping questions! 😊";
+    const text = userText.toLowerCase();
+
+    if (text.includes("order")) reply = "You can track your order in the Orders section.";
+    else if (text.includes("size")) reply = "We offer sizes from XS to XXL. Check the size chart on product pages.";
+    else if (text.includes("return")) reply = "Returns are accepted within 7 days of delivery.";
+    else if (text.includes("hello") || text.includes("hi")) reply = "Hello! 👋 How can I help you today?";
+    else if (text.includes("thanks")) reply = "You're welcome! 💖 Happy shopping!";
+
+    setTimeout(() => {
+      chatBox.innerHTML += `<p><strong>Style Assistant:</strong> ${reply}</p>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }, 500);
+
+    input.value = "";
+  }
+</script>
+
+</body>
+</html>

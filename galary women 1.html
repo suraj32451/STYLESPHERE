@@ -61,7 +61,7 @@
     }
 
     .price {
-      color: #ffcc00;
+      color: #070707;
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
@@ -77,6 +77,7 @@
       cursor: pointer;
       transition: background 0.3s ease;
       text-decoration: none;
+      margin: 5px;
     }
 
     .btn:hover {
@@ -89,38 +90,49 @@
   <header>👗 Women's Wear Collection</header>
 
   <section class="collection">
+
     <div class="card">
-      <img src=https://i.pinimg.com/originals/73/6c/d5/736cd5394c992967d4ceb8999f72ca0a.jpg alt="Summer Dress">
+      <img src="https://i.pinimg.com/originals/73/6c/d5/736cd5394c992967d4ceb8999f72ca0a.jpg" alt="Summer Dress">
       <h3>Summer Dress</h3>
       <p class="price">₹1,499</p>
-      <a href="cart 1.html" class="btn">Add to Cart</a>
-        <a href="tryon.html" class="btn">try on</a>
+      <button class="btn" onclick="addToCart('Summer Dress', 1499, 'https://i.pinimg.com/originals/73/6c/d5/736cd5394c992967d4ceb8999f72ca0a.jpg')">Add to Cart</button>
+      <a href="buy now.html" class="btn">Shop Now</a>
     </div>
 
     <div class="card">
-      <img src=https://tse3.mm.bing.net/th/id/OIP.l2WjQ03AE__Fdw97fkafpAHaLH?pid=Api&P=0&h=180 alt="Party Gown">
+      <img src="https://tse3.mm.bing.net/th/id/OIP.l2WjQ03AE__Fdw97fkafpAHaLH?pid=Api&P=0&h=180" alt="Party Gown">
       <h3>Party Gown</h3>
       <p class="price">₹3,299</p>
-      <a href="cart 1.html" class="btn">Add to Cart</a>
-        <a href="tryon.html" class="btn">try on</a>
+      <button class="btn" onclick="addToCart('Party Gown', 3299, 'https://tse3.mm.bing.net/th/id/OIP.l2WjQ03AE__Fdw97fkafpAHaLH?pid=Api&P=0&h=180')">Add to Cart</button>
+      <a href="buy now.html" class="btn">Shop Now</a>
     </div>
 
     <div class="card">
-      <img src=https://i.pinimg.com/originals/17/4d/a0/174da01736947bfeec6bc4e8476d108f.jpg alt="Casual Top">
+      <img src="https://i.pinimg.com/originals/17/4d/a0/174da01736947bfeec6bc4e8476d108f.jpg" alt="Casual Top">
       <h3>Casual Top</h3>
       <p class="price">₹899</p>
-      <a href="cart 1.html" class="btn">Add to Cart</a>
-        <a href="tryon.html" class="btn">try on</a>
+      <button class="btn" onclick="addToCart('Casual Top', 899, 'https://i.pinimg.com/originals/17/4d/a0/174da01736947bfeec6bc4e8476d108f.jpg')">Add to Cart</button>
+      <a href="buy now.html" class="btn">Shop Now</a>
     </div>
 
     <div class="card">
-      <img src=https://1.bp.blogspot.com/-vQFPiOQXHbQ/V0caZ-OjqbI/AAAAAAAACaw/SaZ65E_fmp0if3NlQ4ZEc5a7Bu9U-LVlwCLcB/s1600/best-ethnic-wear-for-women-rampdiary-7.jpg alt="Ethnic Wear">
+      <img src="https://1.bp.blogspot.com/-vQFPiOQXHbQ/V0caZ-OjqbI/AAAAAAAACaw/SaZ65E_fmp0if3NlQ4ZEc5a7Bu9U-LVlwCLcB/s1600/best-ethnic-wear-for-women-rampdiary-7.jpg" alt="Ethnic Wear">
       <h3>Ethnic Wear</h3>
       <p class="price">₹2,199</p>
-      <a href="cart 1.html" class="btn">Add to Cart</a>
-        <a href="tryon.html" class="btn">try on</a>
+      <button class="btn" onclick="addToCart('Ethnic Wear', 2199, 'https://1.bp.blogspot.com/-vQFPiOQXHbQ/V0caZ-OjqbI/AAAAAAAACaw/SaZ65E_fmp0if3NlQ4ZEc5a7Bu9U-LVlwCLcB/s1600/best-ethnic-wear-for-women-rampdiary-7.jpg')">Add to Cart</button>
+      <a href="buy now.html" class="btn">Shop Now</a>
     </div>
+
   </section>
+
+  <script>
+    function addToCart(name, price, image) {
+      let cart = JSON.parse(localStorage.getItem("style_sphere_cart")) || [];
+      cart.push({ name: name, price: price, image: image });
+      localStorage.setItem("style_sphere_cart", JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+  </script>
 
 </body>
 </html>

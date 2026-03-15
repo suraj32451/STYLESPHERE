@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Style Sphere - Shop</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 
   <style>
@@ -27,23 +26,15 @@
       box-shadow: 0 3px 6px rgba(0,0,0,0.1);
     }
 
-    nav {
-      flex: 1;
-      text-align: center;
-    }
-
+    nav { flex: 1; text-align: center; }
     nav a {
       margin: 0 12px;
       text-decoration: none;
       font-weight: 600;
       color: #fff;
       font-size: 1rem;
-      transition: color 0.3s ease;
     }
-
-    nav a:hover {
-      color: #222;
-    }
+    nav a:hover { color: #222; }
 
     .right-icons {
       display: flex;
@@ -51,18 +42,10 @@
       gap: 15px;
     }
 
-    .account-icon,
-    .cart-icon {
+    .account-icon, .cart-icon {
       font-size: 28px;
       text-decoration: none;
       color: #fff;
-      transition: transform 0.2s ease, color 0.3s ease;
-    }
-
-    .account-icon:hover,
-    .cart-icon:hover {
-      transform: scale(1.2);
-      color: #222;
     }
 
     #cartCount {
@@ -82,7 +65,6 @@
       font-weight: bold;
       overflow: hidden;
       white-space: nowrap;
-      position: relative;
       padding: 10px 0;
     }
 
@@ -97,11 +79,7 @@
       100% { transform: translateX(-100%); }
     }
 
-    .shop {
-      padding: 40px 20px;
-      text-align: center;
-    }
-
+    .shop { padding: 40px 20px; text-align: center; }
     .shop h2 {
       font-size: 2rem;
       margin-bottom: 20px;
@@ -124,9 +102,7 @@
       transition: transform 0.2s ease;
     }
 
-    .product-card:hover {
-      transform: scale(1.05);
-    }
+    .product-card:hover { transform: scale(1.05); }
 
     .product-card img {
       width: 100%;
@@ -134,31 +110,19 @@
       margin-bottom: 10px;
     }
 
-    .product-card h3 {
-      font-size: 1.2rem;
-      margin: 10px 0;
-    }
-
-    .product-card p {
-      font-size: 1rem;
-      color: #555;
-    }
-
     .product-card button {
-      margin: 6px 4px 0 4px;
+      margin-top: 10px;
       background: #ff3366;
       color: #fff;
       border: none;
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-radius: 25px;
       cursor: pointer;
       font-weight: bold;
-      transition: background 0.3s ease;
+      margin-right: 5px;
     }
 
-    .product-card button:hover {
-      background: #cc0052;
-    }
+    .product-card button:hover { background: #cc0052; }
 
     footer {
       text-align: center;
@@ -167,7 +131,6 @@
       margin-top: 40px;
       font-size: 1rem;
       font-weight: bold;
-      color: #333;
     }
   </style>
 </head>
@@ -176,11 +139,11 @@
 <header>
   <nav>
     <a href="home page(1).html">Home</a>
-    <a href="point 2.html">About</a>
-    <a href="point 3.html">Products</a>
-    <a href="point 4.html">Contact</a>
-    <a href="point 5.html">Gallery</a>
-    <a href="point 6.html">Blog</a>
+    <a href="about us(2).html">About</a>
+    <a href="product(3).html">Products</a>
+    <a href="contact(4).html">Contact</a>
+    <a href="gallary(5).html">Gallery</a>
+    <a href="blog(6).html">Blog</a>
   </nav>
 
   <div class="right-icons">
@@ -198,30 +161,30 @@
   <div class="products">
 
     <div class="product-card">
-      <img src="https://i.ytimg.com/vi/qo5u1fRPOdw/oardefault.jpg" alt="Summer cord set">
+      <img src="https://i.ytimg.com/vi/qo5u1fRPOdw/oardefault.jpg?sqp=-oaymwEkCJUDENAFSFqQAgHyq4qpAxMIARUAAAAAJQAAyEI9AICiQ3gB&rs=AOn4CLA9UzkcsrmNfXYg2HnKLkS9ltHopg" alt="Summer cord set">
       <h3>Summer Cord Set</h3>
       <p>₹999</p>
-      <button onclick="addToCart('Summer Cord Set', 999)">Add to Cart</button>
-      <button onclick="location.href='tryon.html'">Try On</button>
-      <button onclick="buyNow('Summer Cord Set', 999)">Buy Now</button>
+      <button onclick="addToCart('Summer Cord Set', 999, 'https://i.ytimg.com/vi/qo5u1fRPOdw/oardefault.jpg?sqp=-oaymwEkCJUDENAFSFqQAgHyq4qpAxMIARUAAAAAJQAAyEI9AICiQ3gB&rs=AOn4CLA9UzkcsrmNfXYg2HnKLkS9ltHopg')">Add to Cart</button>
+      <a href="tryon.html"><button>Try On</button></a>
+       <a href="buy now.html" class="btn">buy now</a>
     </div>
 
     <div class="product-card">
-      <img src="http://www.carters.com/dw/image/v2/AAMK_PRD/on/demandware.static/-/Sites-carters_master_catalog/default/dw3b2ed3c3/productimages/C2167202.jpg" alt="Girl Jacket">
+      <img src="http://www.carters.com/dw/image/v2/AAMK_PRD/on/demandware.static/-/Sites-carters_master_catalog/default/dw3b2ed3c3/productimages/C2167202.jpg?sw=2000" alt="Girl Jacket">
       <h3>Girl Jacket</h3>
       <p>₹1,499</p>
-      <button onclick="addToCart('Girl Jacket', 1499)">Add to Cart</button>
-      <button onclick="location.href='tryon.html'">Try On</button>
-      <button onclick="buyNow('Girl Jacket', 1499)">Buy Now</button>
+      <button onclick="addToCart('Girl Jacket', 1499, 'http://www.carters.com/dw/image/v2/AAMK_PRD/on/demandware.static/-/Sites-carters_master_catalog/default/dw3b2ed3c3/productimages/C2167202.jpg?sw=2000')">Add to Cart</button>
+      <a href="tryon.html"><button>Try On</button></a>
+       <a href="buy now.html" class="btn">buy now</a>
     </div>
 
     <div class="product-card">
       <img src="https://tse4.mm.bing.net/th/id/OIP.2NmFM7sTwUn3dQaPiRob3wAAAA?pid=Api&P=0&h=180" alt="Casual Shirt">
       <h3>Casual Shirt</h3>
       <p>₹1,299</p>
-      <button onclick="addToCart('Casual Shirt', 1299)">Add to Cart</button>
-      <button onclick="location.href='tryon.html'">Try On</button>
-      <button onclick="buyNow('Casual Shirt', 1299)">Buy Now</button>
+      <button onclick="addToCart('Casual Shirt', 1299, 'https://tse4.mm.bing.net/th/id/OIP.2NmFM7sTwUn3dQaPiRob3wAAAA?pid=Api&P=0&h=180')">Add to Cart</button>
+      <a href="tryon.html"><button>Try On</button></a>
+      <a href="buy now.html" class="btn">buy now</a>
     </div>
 
   </div>
@@ -233,26 +196,21 @@
 
 <script>
   const CART_KEY = "style_sphere_cart";
-  let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
-  document.getElementById("cartCount").textContent = cart.length;
 
-  function addToCart(name, price) {
-    cart.push({ name, price });
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
     document.getElementById("cartCount").textContent = cart.length;
-    alert(name + " added to cart!");
   }
 
-  function buyNow(name, price) {
-    cart.push({ name, price });
+  function addToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+    cart.push({ name, price, image });
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
-    window.location.href = "cart 1.html"; // change to checkout page later if you make one
+    alert(name + " added to cart!");
+    updateCartCount();
   }
 
-  function logout(){
-    localStorage.removeItem("loggedInUser");
-    window.location.href = "index.html";
-  }
+  updateCartCount();
 </script>
 
 </body>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - Style Union</title>
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(120deg, #ffa7bd, #ffffff);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #fff;
+      padding: 15px 30px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .cart-container {
+      padding: 40px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .cart-item img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .item-details {
+      flex: 1;
+      color: #fff;
+    }
+
+    .item-details h3 {
+      margin: 0 0 10px;
+    }
+
+    .price {
+      color: #080807;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #ff3366;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #cc0052;
+    }
+
+    .empty {
+      text-align: center;
+      color: white;
+      font-size: 1.4rem;
+      margin-top: 60px;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #fff;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>🛒 Your Shopping Cart</header>
+
+  <section class="cart-container" id="cartContainer"></section>
+  <div class="total" id="totalPrice"></div>
+
+  <script>
+    function loadCart() {
+      const cartContainer = document.getElementById("cartContainer");
+      const totalPriceDiv = document.getElementById("totalPrice");
+      let cart = JSON.parse(localStorage.getItem("style_sphere_cart")) || [];
+
+      cartContainer.innerHTML = "";
+      let total = 0;
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = "<div class='empty'>Your cart is empty 🧸</div>";
+        totalPriceDiv.innerHTML = "";
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        total += item.price;
+
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item");
+
+        cartItem.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <div class="item-details">
+            <h3>${item.name}</h3>
+            <div class="price">₹${item.price}</div>
+            <button class="btn" onclick="buyNow('${item.name}')">Buy Now</button>
+            <button class="btn" onclick="removeItem(${index})">Remove</button>
+          </div>
+        `;
+
+        cartContainer.appendChild(cartItem);
+      });
+
+      totalPriceDiv.innerHTML = "Total: ₹" + total;
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem("style_sphere_cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("style_sphere_cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    // ✅ UPDATED FUNCTION (opens new page)
+    function buyNow(itemName) {
+      localStorage.setItem("buy_item", itemName);
+      window.location.href = "buy now.html";
+    }
+
+    loadCart();
+  </script>
+
+</body>
+</html>

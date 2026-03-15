@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Style Sphere - Admin</title>
+  <title>Style Sphere - Home</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
@@ -22,20 +22,23 @@
       position: relative;
       background: linear-gradient(90deg, #ff3366, #ff99cc);
       padding: 20px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       box-shadow: 0 3px 6px rgba(0,0,0,0.1);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      font-family: 'Merriweather', serif;
-      color: #fff;
-      letter-spacing: 2px;
+    /* Logo (Top-Left) */
+    .logo img {
+      height: 50px;
+      width: auto;
+      border-radius: 8px;
     }
 
+    /* Navigation (Center) */
     nav {
-      margin-top: 8px;
+      flex: 1;
+      text-align: center;
     }
 
     nav a {
@@ -51,17 +54,22 @@
       color: #222;
     }
 
-    /* Cart Icon */
+    /* Right-side Icons (Account + Cart) */
+    .right-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .account-icon,
     .cart-icon {
-      position: absolute;
-      top: 20px;
-      right: 20px;
       font-size: 28px;
       text-decoration: none;
       color: #fff;
       transition: transform 0.2s ease, color 0.3s ease;
     }
 
+    .account-icon:hover,
     .cart-icon:hover {
       transform: scale(1.2);
       color: #222;
@@ -74,31 +82,6 @@
       border-radius: 50%;
       font-size: 0.9rem;
       margin-left: 4px;
-    }
-
-    /* Account (Top-Left) */
-    .account-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #fff;
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    .account-icon {
-      font-size: 28px;
-      text-decoration: none;
-      color: #fff;
-      transition: transform 0.2s ease, color 0.3s ease;
-    }
-
-    .account-icon:hover {
-      transform: scale(1.2);
-      color: #222;
     }
 
     /* Discount Banner */
@@ -120,10 +103,15 @@
       animation: scroll-left 12s linear infinite;
     }
 
-    .discount-banner span {
+    .discount-banner a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    .discount-banner a:hover {
+      color: #ffe6f0;
+      text-decoration: underline;
     }
 
     @keyframes scroll-left {
@@ -131,32 +119,44 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* Hero Section (Admin can have simple hero or info section) */
+    /* Hero Section */
     .hero {
-      background-color: #fff8f0;
-      height: auto;
-      padding: 60px 20px;
+      background: url(https://i.pinimg.com/originals/12/d5/48/12d548fef9f04160798a3ec922f0a067.jpg) center/cover no-repeat;
+      height: 70vh;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      color: #333;
-      flex-direction: column;
+      color: #fff;
+      position: relative;
     }
 
-    .hero h2 {
-      font-size: 2.5rem;
-      font-family: 'Merriweather', serif;
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-content h2 {
+      font-size: 2.8rem;
       margin-bottom: 10px;
+      font-family: 'Merriweather', serif;
     }
 
-    .hero p {
-      font-size: 1.3rem;
+    .hero-content p {
+      font-size: 1.5rem;
       font-weight: bold;
       margin-bottom: 20px;
     }
 
-    .hero a {
+    .hero-content a {
       background: #ff3366;
       color: #fff;
       padding: 12px 28px;
@@ -166,10 +166,9 @@
       font-size: 1.1rem;
       transition: background 0.3s ease, transform 0.2s ease;
       display: inline-block;
-      margin: 5px;
     }
 
-    .hero a:hover {
+    .hero-content a:hover {
       background: #cc0052;
       transform: scale(1.05);
     }
@@ -184,33 +183,6 @@
       font-weight: bold;
       color: #333;
     }
-
-    /* Admin Card Section */
-    .admin-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 40px 20px;
-      background-color: #fff8f0;
-    }
-
-    .admin-card {
-      background: #ff3366;
-      color: #fff;
-      padding: 30px 20px;
-      border-radius: 15px;
-      width: 200px;
-      font-weight: bold;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.3s ease;
-    }
-
-    .admin-card:hover {
-      background: #cc0052;
-      transform: scale(1.05);
-    }
   </style>
 </head>
 <body>
@@ -224,62 +196,65 @@
 
   <!-- Header -->
   <header>
-    <div class="account-container">
-      <a href="account 1.html" class="account-icon">👤</a>
-      
-    </div>
+    <!-- Logo Left -->
+    <a href="information logo.html" class="logo">
+      <img src="C:\Users\Acer\OneDrive\Desktop\shop\image logo.png" alt="Style Sphere Logo">
+    </a>
 
-    <h1>Style Sphere - Admin</h1>
-
+    <!-- Navigation Center -->
     <nav>
-      <a href="point 1.html">Home</a>
-      <a href="admin.html">Admin</a>
-      <a href="point 3.html">Products</a>
-      <a href="point 4.html">Contact</a>
-      <a href="#" onclick="logout()">Logout</a>
+      <a href="home page(1).html">Home</a>
+      <a href="about us(2).html">About</a>
+      <a href="product(3).html">Products</a>
+      <a href="contact(4).html">Contact</a>
+      <a href="gallary(5).html">Gallery</a>
+      <a href="blog(6).html">Blog</a>
+    
     </nav>
 
-    <a href="cart 1.html" class="cart-icon">🛒 <span id="cartCount">0</span></a>
+    <!-- Account + Cart Right -->
+    <div class="right-icons">
+      <a href="account 1.html" class="account-icon">👤</a>
+      <a href="caart (1).html" class="cart-icon">🛒 <span id="cartCount">0</span></a>
+    </div>
   </header>
 
   <!-- Discount Banner -->
   <div class="discount-banner">
-    <span class="discount-text">⚙️ Welcome Admin ⚙️</span>
+    <a href="disscount.html" class="discount-text">
+      🎉 Grand Discount Sale – Up to 70% Off on All Categories! 🛍️ Click Here to Shop Now 🎉
+    </a>
   </div>
 
   <!-- Hero Section -->
   <main>
     <section class="hero">
-      <h2>Admin Dashboard</h2>
-      <p>Manage your store efficiently</p>
-      <a href="product-admin.html">Products</a>
-      <a href="cart 1.html">Orders</a>
-      <a href="">message</a>
+      <div class="hero-content">
+        <h2>Style Sphere Pvt. Ltd.</h2>
+        <p>Your trusted name in fashion & lifestyle</p>
+        <a href="shop now(9).html">🛍️ Shop Now</a>
+      </div>
     </section>
-
-
-  
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>Style Sphere Pvt. Ltd. | Admin Panel</p>
+    <p>Style Sphere Pvt. Ltd.</p>
   </footer>
 
   <!-- Scripts -->
   <script>
+    // Show Welcome User
     const user = localStorage.getItem("loggedInUser");
-    document.getElementById("welcomeUser").textContent = "Welcome, " + user;
+    if(user){
+      document.getElementById("cartCount").textContent = JSON.parse(localStorage.getItem("style_sphere_cart") || "[]").length;
+    }
 
-    const CART_KEY = "style_sphere_cart";
-    let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
-    document.getElementById("cartCount").textContent = cart.length;
-
+    // Logout
     function logout(){
       localStorage.removeItem("loggedInUser");
       window.location.href = "index.html";
     }
   </script>
-
 </body>
 </html>
